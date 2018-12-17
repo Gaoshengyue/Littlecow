@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>demo</title>
+        <script src="static/jquery-3.3.1.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <script src="static/sweetalert/sweetalert.js"></script>
+    <link rel="stylesheet" href="static/sweetalert/sweetalert.css">
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/form-style.css">
+<link rel="stylesheet" type="text/css" href="static/css/zzsc.css">
+
+<style type="text/css">
+	.demo{
+		padding: 2em 0;
+		transform: translate3d(0, 0, 0);
+	}
+	.navbar{
+		width: 150px;
+		height: 150px;
+		line-height: 150px;
+		border-radius: 50%;
+		background: #fff;
+		margin: 70px auto;
+		position: relative;
+		cursor: pointer;
+		text-align: center;
+		font-size: 1.75em;
+		font-weight: bold;
+		color: #99b977;
+		transition: 0.24s 0.2s;
+	}
+	.navbar:hover{
+		background: rgba(255, 255, 255, 0.75);
+	}
+	.navbar .menu{
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		position: absolute;
+		top: -75px;
+		left: -75px;
+		border: 150px solid transparent;
+		cursor: default;
+		border-radius: 50%;
+		transform: scale(0);
+		transition: transform 1.4s 0.07s;
+		z-index: -1;
+	}
+	.navbar:hover .menu{
+		transition: transform 0.4s 0.08s, z-index   0s  0.5s;
+		transform: scale(1);
+		z-index: 1;
+	}
+	.navbar .menu li{
+		position: absolute;
+		top: -100px;
+		left: -100px;
+		transform-origin: 100px 100px;
+		transition: all 0.5s 0.1s;
+	}
+	.navbar:hover .menu li{
+		transition: all 0.6s;
+	}
+	.navbar .menu li a{
+		width: 45px;
+		height: 45px;
+		line-height: 45px;
+		border-radius: 50%;
+		background: #fff;
+		position: absolute;
+		font-size: 60%;
+		color: #99b977;
+		transition: 0.6s;
+	}
+	.navbar:hover .menu li:nth-child(1){
+		transition-delay: 0.02s;
+		transform: rotate(85deg);
+	}
+	.navbar:hover .menu li:nth-child(1) a{
+		transition-delay: 0.04s;
+		transform: rotate(635deg);
+	}
+	.navbar:hover .menu li:nth-child(2){
+		transition-delay: 0.04s;
+		transform: rotate(125deg);
+	}
+	.navbar:hover .menu li:nth-child(2) a{
+		transition-delay: 0.08s;
+		transform: rotate(595deg);
+	}
+	.navbar:hover .menu li:nth-child(3){
+		transition-delay: 0.06s;
+		transform: rotate(165deg);
+	}
+	.navbar:hover .menu li:nth-child(3) a{
+		transition-delay: 0.12s;
+		transform: rotate(555deg);
+	}
+	.navbar:hover .menu li:nth-child(4){
+		transition-delay: 0.08s;
+		transform: rotate(205deg);
+	}
+	.navbar:hover .menu li:nth-child(4) a{
+		transition-delay: 0.16s;
+		transform: rotate(515deg);
+	}
+	.navbar:hover .menu li:nth-child(5){
+		transition-delay: 0.1s;
+		transform: rotate(245deg);
+	}
+	.navbar:hover .menu li:nth-child(5) a{
+		transition-delay: 0.2s;
+		transform: rotate(475deg);
+	}
+	.navbar:hover .menu li:nth-child(6){
+		transition-delay: 0.12s;
+		transform: rotate(285deg);
+	}
+	.navbar:hover .menu li:nth-child(6) a{
+		transition-delay: 0.24s;
+		transform: rotate(435deg);
+	}
+	.navbar:hover .menu li:nth-child(7){
+		transition-delay: 0.14s;
+		transform: rotate(325deg);
+	}
+	.navbar:hover .menu li:nth-child(7) a{
+		transition-delay: 0.28s;
+		transform: rotate(395deg);
+	}
+	.navbar:hover .menu li:nth-child(8){
+		transition-delay: 0.16s;
+		transform: rotate(365deg);
+	}
+	.navbar:hover .menu li:nth-child(8) a{
+		transition-delay: 0.32s;
+		transform: rotate(355deg);
+	}
+	.navbar:hover .menu li:nth-child(9){
+		transition-delay: 0.18s;
+		transform: rotate(405deg);
+	}
+	.navbar:hover .menu li:nth-child(9) a{
+		transition-delay: 0.36s;
+		transform: rotate(315deg);
+	}
+</style>
+  </head>
+  <body>
+
+    <div id="app" style="height: 100%"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
+
+<script>
+      mui.init({
+        keyEventBind: {
+            backbutton: true  //关闭back按键监听
+        }
+      });
+      // //首页返回键处理
+      // //处理逻辑：1秒内，连续两次按返回键，则退出应用；
+      var first = null;
+      mui.back = function() {
+          //首次按键，提示  再按一次退出应用
+          if (!first) {
+              first = new Date().getTime();//记录第一次按下回退键的时间
+              mui.toast('再按一次退出应用');//给出提示
+                           history.go(-1)//回退到上一页面
+              setTimeout(function() {//1s中后清除
+                  first = null;
+              }, 1000);
+          } else {
+              if (new Date().getTime() - first < 1000) {//如果两次按下的时间小于1s，
+                  plus.runtime.quit();//那么就退出app
+
+      } } };
+    </script>
